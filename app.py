@@ -1,5 +1,6 @@
 import gradio as gr
 import cv2
+from pathlib import Path
 
 from huggingface_hub import hf_hub_download
 from ultralytics import YOLO
@@ -47,8 +48,8 @@ def init_models():
     # ----------------------- CONFIGURATIONS ----------------------- #
 
     FACE_DETECTION_MODEL = "arnabdhar/YOLOv8-Face-Detection"
-    GENDER_DETECTION_MODEL = r".\models\gender.pt"
-    AGE_DETECTION_MODEL = r".\models\age.pt"
+    GENDER_DETECTION_MODEL = str(Path("models") / "gender.pt")
+    AGE_DETECTION_MODEL = str(Path("models") / "age.pt")
 
     # -------------------------------------------------------------- #
     # Load Face Detection (fd) Model

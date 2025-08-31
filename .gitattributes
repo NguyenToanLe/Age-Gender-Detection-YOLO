@@ -33,6 +33,9 @@ saved_model/**/* filter=lfs diff=lfs merge=lfs -text
 *.zip filter=lfs diff=lfs merge=lfs -text
 *.zst filter=lfs diff=lfs merge=lfs -text
 *tfevents* filter=lfs diff=lfs merge=lfs -text
+<<<<<<< HEAD
 *.png filter=lfs diff=lfs merge=lfs -text
 *.jpg filter=lfs diff=lfs merge=lfs -text
+=======
+>>>>>>> a49bc2adc28ec65cba378cc08588afad2a44d18d
 models/*.pt filter=lfs diff=lfs merge=lfs -text

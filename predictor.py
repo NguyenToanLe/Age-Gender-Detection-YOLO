@@ -1,4 +1,5 @@
 import cv2
+from pathlib import Path
 
 from huggingface_hub import hf_hub_download
 from ultralytics import YOLO
@@ -23,8 +24,8 @@ def main():
     # ----------------------- CONFIGURATIONS ----------------------- #
 
     FACE_DETECTION_MODEL = "arnabdhar/YOLOv8-Face-Detection"
-    GENDER_DETECTION_MODEL = r"D:\Documents\Personal Projects\Age_Predictor\notebooks\Gender_Detection\v1_epochs_10_imgsz_64\weights\best.pt"
-    AGE_DETECTION_MODEL = r"D:\Documents\Personal Projects\Age_Predictor\notebooks\Age_Detection\v1_epochs_10_imgsz_64\weights\best.pt"
+    GENDER_DETECTION_MODEL = str(Path("models") / "gender.pt")
+    AGE_DETECTION_MODEL = str(Path("models") / "age.pt")
 
     # -------------------------------------------------------------- #
 
@@ -53,12 +54,12 @@ def main():
                 face = crop_face(frame, bbox)
                 gender = detect_age_or_gender(face, gd_model)
                 age = detect_age_or_gender(face, ad_model)
-                frame = cv2.rectangle(frame, (bbox[0], bbox[1]), (bbox[2], bbox[3]), (36, 255, 12), 1)
+                frame = cv2.rectangle(frame, (bbox[0], bbox[1]), (bbox[2], bbox[3]), (36, 255, 12), 3)
                 cv2.putText(frame,
                             f"{gender}, {age} ({confidence:.2f})",
                             (bbox[0], bbox[1] - 10),
                             cv2.FONT_HERSHEY_SIMPLEX,
-                            0.59, (36, 255, 12),2)
+                            1.0, (36, 255, 12),2)
 
         cv2.imshow('Camera', frame)
         k = cv2.waitKey(1)

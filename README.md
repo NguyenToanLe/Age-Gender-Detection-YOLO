@@ -9,6 +9,8 @@ The application is built with Python 3.10.3 and Gradio, providing a user-friendl
 
 A demo can be found [here](https://nguyentoanle41-age-gender-detector.hf.space/).
 
+<img src="./src/demo.gif">
+
 ## Contents
 1. [Features](#1-features)
 2. [Setup](#2-setup)

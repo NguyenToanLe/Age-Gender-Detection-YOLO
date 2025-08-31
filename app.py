@@ -39,7 +39,7 @@ def detect_age_gender(image):
                         f"{gender}, {age} ({confidence:.2f})",
                         (bbox[0], bbox[1] - 10),
                         cv2.FONT_HERSHEY_SIMPLEX,
-                        1.0, (36, 255, 12), 2)
+                        0.59, (36, 255, 12), 2)
 
     return new_image
 
